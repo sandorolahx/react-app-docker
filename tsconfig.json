@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "incremental": true,
+        "target": "ES6",
+        "module": "commonjs",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "es6"
+        ],
+        "allowJs": true,
+        "jsx": "react",
+        "sourceMap": true,
+        "outDir": "./dist/",
+        "rootDir": ".",
+        "removeComments": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true
+    },
+    "include": [
+        "src",
+        "setupTests.ts",
+        "jest.config.js"
+    ],
+    "exclude": [
+        "./node_modules",
+        "./build",
+        "./dist"
+    ]
+}
