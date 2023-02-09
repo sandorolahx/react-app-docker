@@ -1,4 +1,4 @@
-###Add *.dockerignore* file:
+### Add *.dockerignore* file:
 
     node_modules
     npm-debug.log
@@ -11,12 +11,12 @@
 
 The docker container every time we make any changes in the source files id auto reloading.
 
-#####Add *.docker-compose.dev.yml* file:
+##### Add *.docker-compose.dev.yml* file:
     version: "3"
     services:
       app:
-        container_name: dev-react-docker-image
-        image: dev-react-app-docker-image
+        container_name: dev-react-app-first-image
+        image: dev-react-app-first-image
         build:
           context: .
           dockerfile: Dockerfile.dev
@@ -28,7 +28,7 @@ The docker container every time we make any changes in the source files id auto 
         environment:
           - WATCHPACK_POLLING=true
 
-#####Add *Dockerfile.dev* file:
+##### Add *Dockerfile.dev* file:
     FROM node:current-alpine    
     WORKDIR /app
     COPY package.json ./
@@ -38,17 +38,17 @@ The docker container every time we make any changes in the source files id auto 
     EXPOSE 8080
     CMD ["npm", "start"]
 
-#####Run
+##### Run
 
 docker-compose -f docker-compose.dev.yml up
 
-#####Access in the browser
+##### Access in the browser
 
 http://localhost:5555/
 
 ### PROD
 
-#####Add *Dockerfile* file:
+##### Add *Dockerfile* file:
 
     FROM node:14-alpine AS builder
     WORKDIR /app
@@ -61,14 +61,18 @@ http://localhost:5555/
     FROM nginx:1.19-alpine AS server
     COPY --from=builder ./app/dist /usr/share/nginx/html
 
-#####Build
+##### Build
 
-docker build -t prod-react-app-docker-container .
+docker build -t prod-react-app-first-container .
 
-#####Run
+##### Run
 
-docker run -p 5555:80 prod-react-app-docker-container
+docker run -p 5555:80 prod-react-app-first-container
 
-#####Access in the browser
+##### Access in the browser
 
 http://localhost:5555/
+
+
+
+`
