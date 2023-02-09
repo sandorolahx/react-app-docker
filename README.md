@@ -15,8 +15,8 @@ The docker container every time we make any changes in the source files id auto 
     version: "3"
     services:
       app:
-        container_name: dev-react-app-first-image
-        image: dev-react-app-first-image
+        container_name: dev-react-app-docker-image
+        image: dev-react-app-docker-image
         build:
           context: .
           dockerfile: Dockerfile.dev
@@ -63,11 +63,11 @@ http://localhost:5555/
 
 ##### Build
 
-docker build -t prod-react-app-first-container .
+docker build -t prod-react-app-docker-container .
 
 ##### Run
 
-docker run -p 5555:80 prod-react-app-first-container
+docker run -p 5555:80 prod-react-app-docker-container
 
 ##### Access in the browser
 
